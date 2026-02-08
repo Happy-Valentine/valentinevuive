@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine For My Love ❤️</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <audio id="bgMusic" loop>
+      <source src="nhac/sn.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div id="login-screen" class="screen">
+      <div class="lock-box">
+        <div class="profile-pic-container">
+          <div class="glow-ring"></div>
+          <img src="anh/98.jpg" alt="Couple" class="profile-pic" />
+        </div>
+        <h2 class="cursive">Mở khóa trái tim ❤️</h2>
+        <div class="passcode-display" id="passcode-display"></div>
+        <div class="keypad">
+          <button onclick="appendDigit('1')">1</button>
+          <button onclick="appendDigit('2')">2</button>
+          <button onclick="appendDigit('3')">3</button>
+          <button onclick="appendDigit('4')">4</button>
+          <button onclick="appendDigit('5')">5</button>
+          <button onclick="appendDigit('6')">6</button>
+          <button onclick="appendDigit('7')">7</button>
+          <button onclick="appendDigit('8')">8</button>
+          <button onclick="appendDigit('9')">9</button>
+          <button class="btn-clear" onclick="clearPasscode()">X</button>
+          <button onclick="appendDigit('0')">0</button>
+          <button class="btn-ok" onclick="checkPasscode()">OK</button>
+        </div>
+        <p id="error-msg"></p>
+      </div>
+    </div>
+
+    <div id="main-content" class="screen hidden">
+      <canvas id="heartCanvas"></canvas>
+      <div class="slider-container">
+        <div class="slide active" data-index="1">
+          <div class="content-card">
+            <img src="anh/00.jpg" class="main-img" />
+            <div class="text-area">
+              <h3 class="cursive">Gửi công chúa của anh...</h3>
+              <p
+                class="typing"
+                data-text="Chào em! Cảm ơn em đã bước vào cuộc đời anh. Hôm nay là ngày Valentine, anh tự tay mình làm cái này để tặng cho em.Em hãy bấm tiếp theo đi."
+              ></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide" data-index="2">
+          <div class="content-card">
+            <h3 class="cursive">Hành trình hạnh phúc</h3>
+            <div class="love-days">
+              <div class="counter">
+                <span id="days-count">0</span>
+                <p>Ngày bên nhau</p>
+              </div>
+              <p class="start-date">Bắt đầu từ: 02/09/2025</p>
+            </div>
+            <p>Mỗi ngày bên em là một ngày nắng rực rỡ.</p>
+          </div>
+        </div>
+        <div class="slide" data-index="3">
+          <div class="content-card">
+            <img src="anh/88.jpg" class="maine-img" />
+            <div class="text-area">
+              <h3 class="cursive">Happy Valentine</h3>
+              <p
+                class="typing"
+                data-text="Anh không giỏi những lời hoa mỹ, nhưng anh thật lòng thích cảm giác được ở cạnh em. Valentine này, chỉ cần một buổi tối bình yên bên nhau cũng đủ để anh thấy ngày này có ý nghĩa. Chúc cô gái anh thương luôn vui và cười thật nhiều."
+              ></p>
+            </div>
+          </div>
+        </div>
+        <div class="slide" data-index="4">
+          <div class="content-card">
+            <img src="anh/33.jpg" class="maine-img" />
+            <div class="text-area">
+              <h3 class="cursive">Happy Valentine</h3>
+              <p
+                class="typing"
+                data-text="Anh chỉ muốn nói là có em bên cạnh là điều anh thấy may mắn. Cảm ơn em vì đã xuất hiện, ở lại và làm cho những ngày của anh bớt nhàm chán hơn. Mong là chúng ta sẽ cùng nhau tạo thêm nhiều kỷ niệm đẹp nữa."
+              ></p>
+            </div>
+          </div>
+        </div>
+        <div class="slide" data-index="5">
+          <div class="content-card">
+            <img src="anh/66.jpg" class="maine-img" />
+            <div class="text-area">
+              <h3 class="cursive">Happy Valentine</h3>
+              <p
+                class="typing"
+                data-text="Với anh, Valentine không cần quá đặc biệt, chỉ cần có em là đủ. Cảm ơn em vì những lúc quan tâm, những tin nhắn hỏi han và cả những khoảnh khắc rất bình thường nhưng lại rất đáng nhớ. Mong là mình sẽ luôn trân trọng nhau như bây giờ."
+              ></p>
+            </div>
+          </div>
+        </div>
+        <div class="slide" data-index="6">
+          <div class="content-card">
+            <img src="anh/77.jpg" class="maine-img" />
+            <div class="text-area">
+              <h3 class="cursive">Happy Valentine</h3>
+              <p
+                class="typing"
+                data-text="Anh biết anh không tài giỏi, không đẹp trai. Nhưng anh yêu em bằng cả tấm lòng của anh. Tuy anh không được giàu như những người khác nhưng anh vẫn sẽ cho em những gì anh có thể cho."
+              ></p>
+            </div>
+          </div>
+        </div>
+        <div class="slide" data-index="7">
+          <div class="content-card">
+            <img src="anh/44.jpg" class="maine-img" />
+            <div class="text-area">
+              <h3 class="cursive">Happy Valentine</h3>
+              <p
+                class="typing"
+                data-text="Cảm ơn em đã kiên nhẫn và yêu thương anh vô điều kiện."
+              ></p>
+            </div>
+          </div>
+        </div>
+        <div class="slide" data-index="8">
+          <div class="content-card">
+            <img src="anh/99.jpg" class="maine-img" />
+            <div class="text-area">
+              <h3 class="cursive">Happy Valentine</h3>
+              <p
+                class="typing"
+                data-text="Cũng cảm ơn em vì đã đọc hết đây là món quà anh dành thời gian làm để tặng em trong ngày Valentine này. Rất vui vì Valentine năm nay chúng ta có nhau. Anh mong không chỉ năm nay mà năm sau năm kế tiếp chúng ta vẫn bên nhau em nhé!"
+              ></p>
+            </div>
+          </div>
+        </div>
+        <div class="slide" data-index="9">
+          <div class="content-card">
+            <img src="anh/433.jpg" class="maine-img" />
+            <div class="text-area">
+              <h3 class="cursive">Happy Valentine</h3>
+              <p
+                class="typing"
+                data-text="Em là điều tuyệt vời nhất mà anh từng có được. Anh yêu em!"
+              ></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide" data-index="10">
+          <div class="content-card final-card">
+            <div class="final-heart">💖</div>
+            <h2 class="cursive">Happy Valentine!</h2>
+            <p>Mãi mãi bên nhau em nhé!</p>
+            <button class="btn-restart" onclick="restartExperience()">
+              Xem lại từ đầu ✨
+            </button>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button id="prevBtn" onclick="changeSlide(-1)">⬅ Quay lại</button>
+          <button id="nextBtn" onclick="changeSlide(1)">Tiếp theo ➡</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

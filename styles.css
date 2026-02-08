@@ -1,0 +1,239 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+  overflow: hidden;
+  color: #444;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffd1ff, #a1c4fd);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  animation: sparkle 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+}
+.hidden {
+  display: none !important;
+}
+
+/* Glassmorphism Card */
+.lock-box,
+.content-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 330px;
+}
+
+/* Ảnh tròn hào quang */
+.profile-pic-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.glow-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid #ff4b6e;
+  box-shadow: 0 0 20px #ff4b6e;
+  animation: pulse 2s infinite;
+}
+.profile-pic {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  z-index: 2;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* Passcode & Keypad */
+.passcode-display {
+  height: 45px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  font-size: 24px;
+  letter-spacing: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #ff4b6e;
+}
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.keypad button {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: none;
+  background: #ff8fa3;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.keypad button:hover {
+  background: #ff4b6e;
+}
+.btn-ok {
+  background: #ff4b6e !important;
+  font-weight: bold;
+}
+
+/* Slide Layout */
+.slider-container {
+  width: 90%;
+  max-width: 450px;
+  z-index: 10;
+}
+.slide {
+  display: none;
+  animation: slideUp 0.6s ease;
+}
+.slide.active {
+  display: block;
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-img {
+  width: 60%;
+  border-radius: 60px;
+  margin-bottom: 15px;
+  border: 4px solid white;
+}
+.maine-img {
+  width: 40%;
+  border-radius: 50px;
+  margin-bottom: 15px;
+  border: 4px solid white;
+}
+.cursive {
+  font-family: "Dancing Script", cursive;
+  color: #d63384;
+  font-size: 2.2em;
+  margin: 10px 0;
+}
+.love-days {
+  background: #fff0f3;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 15px 0;
+}
+.counter span {
+  font-size: 3.5em;
+  font-weight: bold;
+  color: #ff4b6e;
+}
+
+.nav-buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-buttons button {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
+  background: #ff4b6e;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(255, 75, 110, 0.3);
+}
+
+.final-heart {
+  font-size: 80px;
+  animation: heartBeat 1s infinite;
+}
+@keyframes heartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+#heartCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
