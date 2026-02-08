@@ -237,3 +237,32 @@ body::before {
   pointer-events: none;
   z-index: 1;
 }
+/* --- PHẦN TỰ CĂN CHỈNH CHO ĐIỆN THOẠI --- */
+
+/* Khi màn hình nhỏ hơn 600px (điện thoại) */
+@media screen and (max-width: 600px) {
+    /* 1. Làm cho khung chứa nhỏ lại vừa màn hình */
+    .lock-box, .content-card {
+        width: 85% !important; /* Dùng !important để chắc chắn nó được áp dụng */
+        max-width: 300px;
+        padding: 15px;
+    }
+
+    /* 2. Chỉnh ảnh kỷ niệm nhỏ lại để không chiếm hết chỗ */
+    .main-img {
+        width: 100% !important;
+        height: auto;
+    }
+
+    /* 3. Chỉnh bàn phím số nhỏ lại cho dễ bấm trên đt */
+    .keypad button {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    /* 4. Chỉnh chữ tiêu đề nhỏ lại tránh bị tràn hàng */
+    .cursive {
+        font-size: 1.6rem !important;
+    }
+}
